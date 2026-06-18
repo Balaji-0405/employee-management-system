@@ -1,0 +1,223 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  font-family: Inter, sans-serif;
+}
+
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * EMS — Employee Management System design system.
+ * Corporate, minimal, productivity-focused. Slate neutrals + indigo accent.
+ * All colors in oklch.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Inter", sans-serif;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  --background: oklch(0.995 0.002 250);
+  --foreground: oklch(0.21 0.03 260);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.03 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.03 260);
+
+  --primary: oklch(0.42 0.19 258);
+  --primary-foreground: oklch(0.99 0.003 250);
+
+  --secondary: oklch(0.965 0.008 255);
+  --secondary-foreground: oklch(0.28 0.04 260);
+
+  --muted: oklch(0.965 0.008 255);
+  --muted-foreground: oklch(0.52 0.025 258);
+
+  --accent: oklch(0.95 0.02 260);
+  --accent-foreground: oklch(0.28 0.04 260);
+
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.985 0.003 250);
+
+  --success: oklch(0.62 0.15 155);
+  --success-foreground: oklch(0.985 0.003 250);
+
+  --warning: oklch(0.78 0.16 75);
+  --warning-foreground: oklch(0.21 0.03 260);
+
+  --info: oklch(0.65 0.13 235);
+  --info-foreground: oklch(0.985 0.003 250);
+
+  --border: oklch(0.92 0.01 258);
+  --input: oklch(0.92 0.01 258);
+  --ring: oklch(0.46 0.17 264);
+
+  --chart-1: oklch(0.55 0.18 264);
+  --chart-2: oklch(0.65 0.13 235);
+  --chart-3: oklch(0.62 0.15 155);
+  --chart-4: oklch(0.78 0.16 75);
+  --chart-5: oklch(0.6 0.2 320);
+
+  --sidebar: oklch(0.985 0.004 255);
+  --sidebar-foreground: oklch(0.28 0.03 260);
+  --sidebar-primary: oklch(0.46 0.17 264);
+  --sidebar-primary-foreground: oklch(0.985 0.003 250);
+  --sidebar-accent: oklch(0.95 0.015 258);
+  --sidebar-accent-foreground: oklch(0.28 0.04 260);
+  --sidebar-border: oklch(0.92 0.01 258);
+  --sidebar-ring: oklch(0.46 0.17 264);
+}
+
+.dark {
+  --background: oklch(0.16 0.02 260);
+  --foreground: oklch(0.97 0.005 255);
+
+  --card: oklch(0.21 0.025 260);
+  --card-foreground: oklch(0.97 0.005 255);
+  --popover: oklch(0.21 0.025 260);
+  --popover-foreground: oklch(0.97 0.005 255);
+
+  --primary: oklch(0.7 0.16 264);
+  --primary-foreground: oklch(0.18 0.03 260);
+
+  --secondary: oklch(0.26 0.025 260);
+  --secondary-foreground: oklch(0.97 0.005 255);
+
+  --muted: oklch(0.26 0.025 260);
+  --muted-foreground: oklch(0.7 0.02 258);
+
+  --accent: oklch(0.3 0.04 264);
+  --accent-foreground: oklch(0.97 0.005 255);
+
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: oklch(0.97 0.005 255);
+
+  --success: oklch(0.7 0.15 155);
+  --success-foreground: oklch(0.18 0.03 260);
+
+  --warning: oklch(0.82 0.16 75);
+  --warning-foreground: oklch(0.18 0.03 260);
+
+  --info: oklch(0.72 0.13 235);
+  --info-foreground: oklch(0.18 0.03 260);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.7 0.16 264);
+
+  --chart-1: oklch(0.7 0.16 264);
+  --chart-2: oklch(0.72 0.13 235);
+  --chart-3: oklch(0.7 0.15 155);
+  --chart-4: oklch(0.82 0.16 75);
+  --chart-5: oklch(0.7 0.18 320);
+
+  --sidebar: oklch(0.18 0.025 260);
+  --sidebar-foreground: oklch(0.92 0.01 255);
+  --sidebar-primary: oklch(0.7 0.16 264);
+  --sidebar-primary-foreground: oklch(0.18 0.03 260);
+  --sidebar-accent: oklch(0.24 0.03 260);
+  --sidebar-accent-foreground: oklch(0.97 0.005 255);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.7 0.16 264);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Announcement animations */
+@keyframes blink-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--destructive) 60%, transparent); }
+  70% { box-shadow: 0 0 0 8px color-mix(in oklab, var(--destructive) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--destructive) 0%, transparent); }
+}
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-blink { animation: blink-soft 1.2s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 1.6s ease-out infinite; }
+.animate-marquee { animation: marquee 28s linear infinite; }
+.animate-marquee:hover { animation-play-state: paused; }
