@@ -118,24 +118,24 @@ export const timesheetAPI = {
 }
 
 export const leaveAPI = {
-  getBalance: () => apiFetch('/leave/balance'),
+  getBalance: () => apiFetch('/v1/leaves/balance/my'),
   apply: (data: Record<string, unknown>) =>
-    apiFetch('/leave/apply', {
+    apiFetch('/v1/leaves/requests', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
   review: (id: string, status: string, note: string) =>
-    apiFetch(`/leave/${id}/review`, {
-      method: 'PUT',
-      body: JSON.stringify({ status, review_note: note }),
-    }),
-  getMy: () => apiFetch('/leave/my'),
-  getPending: () => apiFetch('/leave/pending'),
-  getTeam: () => apiFetch('/leave/team'),
-  checkBalance: (type: string, days: number) =>
-    apiFetch(`/leave/balance/check?type=${encodeURIComponent(type)}&days=${days}`),
+    status === 'approved'
+      ? apiFetch(`/v1/leaves/requests/${id}/approve`, { method: 'PUT' })
+      : apiFetch(`/v1/leaves/requests/${id}/reject`, {
+          method: 'PUT',
+          body: JSON.stringify({ reason: note }),
+        }),
+  getMy: () => apiFetch('/v1/leaves/requests/my'),
+  getPending: () => apiFetch('/v1/leaves/requests/pending'),
+  getTeam: () => apiFetch('/v1/leaves/requests/team-history'),
   getEmployeeBalance: (employeeId: string) =>
-    apiFetch(`/leave/balance/${employeeId}`),
+    apiFetch(`/v1/leaves/balance/${employeeId}`),
 }
 
 export const notificationAPI = {
@@ -147,17 +147,6 @@ export const notificationAPI = {
   getUnreadCount: () => apiFetch('/notifications/unread-count'),
 }
 
-export const payrollAPI = {
-  getMy: () => apiFetch('/payroll/my'),
-  getDetail: (id: string) => apiFetch(`/payroll/${id}`),
-  getAll: (month: number, year: number) =>
-    apiFetch(`/payroll/all?month=${month}&year=${year}`),
-  process: (month: number, year: number) =>
-    apiFetch('/payroll/process', {
-      method: 'POST',
-      body: JSON.stringify({ month, year }),
-    }),
-}
 
 export const projectAPI = {
   getAll:          () => apiFetch('/projects/all'),

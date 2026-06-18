@@ -1,9 +1,10 @@
-create extension if not exists pgcrypto;
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
-create table if not exists holidays (
-  id uuid primary key default gen_random_uuid(),
-  name text not null,
-  date date not null,
-  country text,
-  created_at timestamptz default now()
+CREATE TABLE IF NOT EXISTS holidays (
+  id         UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  name       TEXT        NOT NULL,
+  date       DATE        NOT NULL,
+  country    TEXT,
+  status     VARCHAR(20) NOT NULL DEFAULT 'approved',
+  created_at TIMESTAMPTZ DEFAULT NOW()
 );

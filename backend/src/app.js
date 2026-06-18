@@ -9,11 +9,9 @@ import { initCronJobs } from './services/payroll/cronJobs.js'
 import authRoutes from './routes/authRoutes.js'
 import attendanceRoutes from './routes/attendanceRoutes.js'
 import timesheetRoutes from './routes/timesheetRoutes.js'
-import leaveRoutes from './routes/leaveRoutes.js'
 import notificationRoutes from './routes/notificationRoutes.js'
 import projectRoutes from './routes/projectRoutes.js'
 import taskRoutes from './routes/taskRoutes.js'
-import payrollRoutes from './routes/payrollRoutes.js'
 import employeeRoutes from './routes/employeeRoutes.js'
 import holidaysRoutes from './routes/holidaysRoutes.js'
 import announcementRoutes from './routes/announcementRoutes.js'
@@ -94,11 +92,9 @@ initCronJobs()
 app.use('/api/auth', authRoutes)
 app.use('/api/attendance', attendanceRoutes)
 app.use('/api/timesheets', timesheetRoutes)
-app.use('/api/leave', leaveRoutes)
 app.use('/api/notifications', notificationRoutes)
 app.use('/api/projects', projectRoutes)
 app.use('/api/tasks', taskRoutes)
-app.use('/api/payroll', payrollRoutes)
 app.use('/api/employees', employeeRoutes)
 app.use('/api/holidays', holidaysRoutes)
 app.use('/api/announcements', announcementRoutes)
