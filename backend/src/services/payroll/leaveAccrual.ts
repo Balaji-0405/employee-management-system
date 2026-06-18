@@ -4,7 +4,7 @@ export async function monthlyELAccrual(): Promise<void> {
   const { data: employees, error: empError } = await supabase
     .from('employees')
     .select('id')
-    .eq('status', 'active')
+    .eq('is_active', true)
 
   if (empError) throw new Error(empError.message)
 
@@ -63,7 +63,7 @@ export async function yearEndProcessing(): Promise<void> {
   const { data: employees, error: empError } = await supabase
     .from('employees')
     .select('id')
-    .eq('status', 'active')
+    .eq('is_active', true)
 
   if (empError) throw new Error(empError.message)
 

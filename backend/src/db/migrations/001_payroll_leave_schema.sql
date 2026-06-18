@@ -220,7 +220,7 @@ SELECT
   0,
   '2026-01-01'
 FROM employees
-WHERE status = 'active'
+WHERE is_active = true
 ON CONFLICT (employee_id, effective_from) DO NOTHING;
 
 INSERT INTO employee_leave_balances
@@ -234,7 +234,7 @@ SELECT
   ROUND((7 * 1.5)::numeric, 1),
   ROUND((RANDOM() * 3)::numeric, 1)
 FROM employees
-WHERE status = 'active'
+WHERE is_active = true
 ON CONFLICT (employee_id, year) DO NOTHING;
 
 INSERT INTO payroll_runs (pay_month, pay_year, status)
